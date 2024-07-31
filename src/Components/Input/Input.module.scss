@@ -1,0 +1,85 @@
+.input_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 100px;
+    border: none;
+    overflow: hidden;
+
+    .input_form {
+        position: relative;
+        width: 100%;
+        display: flex;
+        height: 60px;
+
+        .input {
+            width: 85%;
+            height: 100%;
+            border: none;
+            outline: none;
+            padding-left: 15px;
+            padding-right: 15px;
+            letter-spacing: 2px;
+            font-size: 25px;
+            font-family: "Noto-400";
+            border: 1px solid gray;
+            border-radius: 10px;
+            background-color: transparent;
+            position: relative;
+        }
+
+        .input_label {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            font-family: "Noto-400";
+            transition: all 0.3s ease;
+            pointer-events: none;
+            color: gray;
+        }
+
+       
+    }
+
+    .input_button {
+        border: none;
+        width: 200px;
+        height: 60px;
+        font-family: "Noto-700";
+        font-size: 25px;
+        background-color: rgba(150, 200, 255, 0.5);
+        cursor: pointer;
+        transition: 0.2s;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: rgba(150, 200, 255, 1);
+        }
+
+        &:active {
+            box-shadow: none;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .input_container{
+        flex-direction: column;
+        align-items: center;
+
+        .input_form{
+            width: 100%;
+
+            .input{
+                width: 100%;
+            }
+        }
+
+        .input_button{
+            margin-top: 20px;
+        }
+    }
+}

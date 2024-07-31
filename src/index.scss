@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Noto-400";
+  src: url(./Assets/Fonts/NotoSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Noto-700";
+  src: url(./Assets/Fonts/NotoSans-Bold.ttf);
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Noto-400";
+}
+
+html{
+  overflow: hidden;
+}

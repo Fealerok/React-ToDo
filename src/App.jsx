@@ -7,10 +7,13 @@ import ListThings from "./Components/ListThings/ListThings";
 
 function App() {
 
+  const [isCompletedTasks, setIsCompletedTasks] = useState(false);
+
   const [thingsData, setThingsData] = useState(() => {
     const savedData = localStorage.getItem("thingsData");
     return savedData ? JSON.parse(savedData) : [];
   });
+
 
   function getInputText(input_text) {
     const newThing = {
@@ -32,26 +35,39 @@ function App() {
       });
 
       setThingsData(updatedListThings);
-
   }
 
   function getThingIndexToAppForDelete(index){
     const updatedListThings = thingsData.filter(thing => thing.id !== index);
-   setThingsData(updatedListThings);
+    setThingsData(updatedListThings);
+  }
 
+  function showCompletedThings(){
+    setIsCompletedTasks(!isCompletedTasks);
   }
 
   useEffect(() => {
     localStorage.setItem("thingsData", JSON.stringify(thingsData));
   }, [thingsData]);
 
+  console.log(thingsData);
+
+
   return (
     <>
       <div className={styles.wrapper_content}>
         <div className={styles.wrapper}>
           <Input getInputText={getInputText}></Input>
-          <ListThings things_data={thingsData} getThingIndexToApp={getThingIndexToApp} getThingIndexToAppForDelete={getThingIndexToAppForDelete}></ListThings>
+
+          <ListThings things_data={thingsData} getThingIndexToApp={getThingIndexToApp} getThingIndexToAppForDelete={getThingIndexToAppForDelete} isCompleted={isCompletedTasks}></ListThings>
+
+          <div className={styles.bottom_content}>
+            <div className={styles.horizontal_line}></div>
+            <button className={styles.showCompletedThingsButton} onClick={showCompletedThings}>{isCompletedTasks ? "Show all tasks" : "Show completed tasks"}</button>
+          </div>
+
         </div>
+
         <Background></Background>
       </div>
     </>

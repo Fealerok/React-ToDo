@@ -7,3 +7,10 @@
     min-height: 500px;
     max-height: 500px;
 }
+
+@media (max-width: 700px) {
+    .list_things_container{
+        min-height: calc(100vh - 500px);
+        max-height: calc(100vh - 500px);
+    }
+}
